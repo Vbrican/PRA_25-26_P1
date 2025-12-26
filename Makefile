@@ -9,6 +9,8 @@ bin/testListLinked: testListLinked.cpp ListLinked.h List.h
 	mkdir -p bin
 	g++ -std=c++11 -Wall -Wextra -g -o bin/testListLinked testListLinked.cpp
 
+Point2D.o: Point2D.h Point2D.cpp
+	g++ -c Point2D.cpp
 
 clean:
 	rm -rf *.o *.gch bin
