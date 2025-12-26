@@ -17,6 +17,10 @@ private:
         if (new_size < MINSIZE) {
             new_size = MINSIZE;
         }
+        if (new_size < n) {
+            new_size = n;
+        }
+
         T* new_arr = new T[new_size];
         int limit = n < new_size ? n : new_size;
         for (int i = 0; i < limit; ++i) {
@@ -25,6 +29,7 @@ private:
         delete[] arr;
         arr = new_arr;
         max = new_size;
+
         if (n > max) {
             n = max;
         }
@@ -40,6 +45,10 @@ public:
     ~ListArray() {
         delete[] arr;
     }
+
+    // Evitamos copias para no tener doble delete[] del mismo arr
+    ListArray(const ListArray& other) = delete;
+    ListArray& operator=(const ListArray& other) = delete;
 
     void insert(int pos, T e) override {
         if (pos < 0 || pos > n) {
