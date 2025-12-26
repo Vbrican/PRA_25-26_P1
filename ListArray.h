@@ -52,7 +52,7 @@ public:
 
     void insert(int pos, T e) override {
         if (pos < 0 || pos > n) {
-            throw std::out_of_range("insert");
+            throw std::out_of_range("Posición Inválida!");
         }
         if (n == max) {
             resize(max * 2);
@@ -74,7 +74,7 @@ public:
 
     T remove(int pos) override {
         if (pos < 0 || pos >= n) {
-            throw std::out_of_range("remove");
+            throw std::out_of_range("Posición Inválida!");
         }
         T value = arr[pos];
         for (int i = pos; i < n - 1; ++i) {
@@ -89,7 +89,7 @@ public:
 
     T get(int pos) override {
         if (pos < 0 || pos >= n) {
-            throw std::out_of_range("get");
+            throw std::out_of_range("Posición Inválida!");
         }
         return arr[pos];
     }
@@ -113,7 +113,7 @@ public:
 
     T operator[](int pos) {
         if (pos < 0 || pos >= n) {
-            throw std::out_of_range("operator[]");
+            throw std::out_of_range("Posición Inválida!");
         }
         return arr[pos];
     }
